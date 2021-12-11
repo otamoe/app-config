@@ -10,11 +10,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-type (
-	FXConfig struct {
-	}
-)
-
 const Name = "otamoe"
 
 func init() {
@@ -164,4 +159,8 @@ func GetStringSlice(key string) []string {
 
 func GetTime(key string) time.Time {
 	return viper.GetTime(key)
+}
+
+func GetConfig() *viper.Viper {
+	return viper.GetViper()
 }
