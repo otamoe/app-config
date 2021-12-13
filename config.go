@@ -10,15 +10,22 @@ import (
 	"github.com/spf13/viper"
 )
 
-const Name = "otamoe"
+var name = "otamoe"
 
 func init() {
 	// 设置 env 前缀
-	SetEnvPrefix(Name)
+	SetEnvPrefix(name)
 
 	// 环境类型
 	SetDefault("env", "production", "Environment type  production, development, test")
+}
 
+func SetName(val string) {
+	name = val
+}
+
+func GetName() string {
+	return name
 }
 
 func SetDefault(key string, value interface{}, usage string) {
@@ -98,8 +105,8 @@ func SetDefault(key string, value interface{}, usage string) {
 	}
 }
 
-func SetEnvPrefix(name string) {
-	viper.SetEnvPrefix(strings.ToUpper(name))
+func SetEnvPrefix(val string) {
+	viper.SetEnvPrefix(strings.ToUpper(val))
 }
 
 func Parse() {
