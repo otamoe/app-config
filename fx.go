@@ -5,7 +5,7 @@ import (
 	"go.uber.org/fx"
 )
 
-func NewFX(v *viper.Viper) (fxOption fx.Option) {
+func NewFX(v *viper.Viper, stop bool) (fxOption fx.Option) {
 	if v == nil {
 		v = GetConfig()
 		return
